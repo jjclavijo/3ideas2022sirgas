@@ -1,0 +1,280 @@
+Author:  AC Coordinator / GA MIT 
+
+sum-file Version 2.0
+Rapid IGS Orbit Combination - Week 2233   Day: 0   (Oct 23, 2022)
+
+Contacts: acc@igs.org
+
+
+COMBINATION STRATEGY:
+---------------------
+
+For a complete description of the combination strategy along with all tables 
+and statistics, please refer to the IGS Final Combination reports posted on 
+CDDIS within 13 days after the end of the GPS week.
+
+
+PRODUCT FILES:
+--------------
+
+The Rapid Orbit files generated and uploaded into CDDIS @ NASA/GSFC are:
+
+igr22330.sp3   IGR GPS ephemeris in SP3 format.
+igr22330.clk   IGR GPS satellite and station clocks in RINEX format.
+igr22330.cls   IGR GPS clock combination summary report. 
+igr22330.erp   Earth Rotation Parameters (ERP) and their rates as well as
+               Universal Time (UT1-UTC) and Length Of Day (LOD) associated 
+               with IGS ephemerides.
+igr22330.sum   Combination summary report.
+
+    
+REMARKS concerning the IGR Orbit Combination:                                  
+---------------------------------------------
+
+ 1. Broadcast ("brd") orbits/clocks are included in the combination for
+    statistics only.  However broadcast clock corrections are used for clock 
+    alignment to GPS time and centre clock weight determination purposes. Starting
+    09-Oct-2012 (GPS Week 1709, day 2, MJD 56209), a new solution from Wuhan
+    University (WHU) is included for comparison only. Starting 02-Mar-2014 (GPS
+    Week 1782, day 0, 56718), 24h of 4-10 hour orbit and clock predictions from
+    the IGS Real-time Service (IGC) are compared to the IGS Rapid products.
+
+ 2. The following centre solutions (orbits/clocks) were excluded from the
+    combination but kept for statistics:
+    
+               -> Centre: IGA IGU 
+
+ 3. The following centre clock solutions, which provide broadcast clock
+    corrections, were excluded from the combination but kept in the
+    combination statistics:
+    
+               -> Centre: NGS 
+
+ 4. The following clock solutions were excluded from the combination because
+    they were biasing the combined clock solutions (clock shifts/outliers)
+    but were kept for the RMS computation.
+    All clocks from USN.
+    
+               Day | Centre | PRN/STA list
+               ----+--------+---------------
+                0  |  COD   | 21
+                0  |  EMR   | MADR
+                0  |  ESA   | KIRI MAC1 SCUB TOW2
+                0  |  GFZ   | 11 13 18 21
+                0  |  JPL   | 21 CUSV CZTG ZECK
+                0  |  USN   | ASPA GLPS
+                0  |  WHU   | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+                0  |  WHU   | 21 22 23 24 25 26 27 28 29 30 31 32
+
+ 5. The following orbit solutions were excluded from the combination because 
+    they were biasing the weighted average. They were still used for statistics
+    computation unless all centres were excluded for the  problem satellites in 
+    which case they were simply eliminated from the combination and statistics.
+    The following table lists the exclusions:
+    
+               Day | Centre | PRN list
+               ----+--------+---------------
+                0  |  WHU   |   6  11  12  14  17  19  21  24  28
+
+ 6. Starting 5-Nov-2006 (GPS Week 1400, day 0, MJD 54044) until 16-Apr-2011
+    (GPS Week 1631, day 6, MJD 55667) all IGS products, including the IGS
+    combined orbits, are based on the IGS realization of the ITRF2005 reference
+    frame (IGS05).   For more information see IGSMAIL #5447.  The IGS05 frame
+    is also the basis for the homogeneously reprocessed IGS products from GPS
+    Weeks 730 to 1459 (1994-2007); see IGSMAIL #6136.
+    
+    Starting 17-Apr-2011 (GPS Week 1632, day 0, MJD 55668) all IGS products,
+    are based on the IGS realization of the ITRF2008 reference frame (IGS08).
+    For more information see IGSMAIL #6354.
+    
+    Starting 07-Oct-2012 (GPS Week 1709, day 0, MJD 56207) all IGS products,
+    are based on the updated IGS08 frame (IGb08).
+    For more information see IGSMAIL #6663.
+    
+    Starting 29-Jan-2017 (GPS Week 1934, day 0, MJD 57782) all IGS products,
+    are based on the IGS realization of the ITRF2014 reference frame (IGS14).
+    For more information see IGSMAIL #7399.
+    
+    Starting 17-May-2020 (GPS Week 2106, day 0, MJD 58986) all IGS products,
+    are based on the updated IGS14 reference frame (IGb14).
+    For more information see IGSMAIL #7921.
+
+ 7. Starting on 5-Nov-2000 (GPS Week 1087-0; mjd=51853) all IGS clock products
+    are based on the new clock combination scheme which uses the the clock
+    RINEX files as input if available, otherwise SP3 clocks are used.
+    The navigation solution is still based on the SP3 clocks but this will
+    soon adopt the clock RINEX files as well.
+
+ 8. Starting 5-Nov-2006 (GPS Week 1400, day 0, MJD 54044) until 16-Apr-2011
+    (GPS Week 1631, day 6, MJD 55667) the absolute antenna model is introduced
+    (IGSMAIL #5438). The antenna phase center offsets and phase center
+    variations are given in the file:
+        https://files.igs.org/pub/station/general/igs05.atx
+    These antenna calibrations are also used in the homogeneously reprocessed
+    IGS products from GPS Weeks 730 to 1459 (1994-2007); see IGSMAIL #6136.
+    
+    Starting 17-Apr-2011 (GPS Week 1632, day 0, MJD 55668) the absolute antenna
+    model is updated (IGSMAIL #6255 & #6374) as given in the file:
+        https://files.igs.org/pub/station/general/igs08.atx
+    
+    The JPL solution did not use IGS08/igs08.atx until GPS Week 1649, day 1,
+    which caused their RMS clock residuals to be higher during that period
+    than for the other centres.
+    
+    Starting 07-Oct-2012 (GPS Week 1709, day 0, MJD 56207) the igs08.atx absolute
+    antenna model file gives updated (IGSMAIL #6662) values for the JPSREGANT_DD
+    and JPSREGANT_SD antennas, plus updates for GPS IIF transmit antennas. This
+    updated file should be used in conjunction with IGb08. Though, igs08.atx is
+    also still consistent with IGS08.
+    
+    Starting 29-Jan-2017 (GPS Week 1934, day 0, MJD 57782) the absolute antenna
+    model file has been updated to igs14.atx to be consistent with IGS14.
+    See IGSMAIL #7399 for more information
+        https://files.igs.org/pub/station/general/igs14.atx
+
+
+    
+ORBIT COMBINATION AND EVALUATION STATISTICS:                                    
+--------------------------------------------                                    
+      
+Table 1: Daily transformation of each centre to the combined IGR orbit
+         and clocks (iga is the 24h adjusted  part of Ultra Rapid,
+                     igu is the 24h predicted part of Ultra Rapid). 
+                     igc is a 24h set of 4-10 hour predictions
+                      from the IGS Real-time Service). 
+         
+         WRMS - RMS weighted by the centres SP3 header accuracy codes.
+         STA  - Number of stations in the daily solutions.
+   
+Table 1.2233.0   GPS week: 2233   Day: 0   MJD: 59875.000                            
+
+CENT STA|   DX    DY    DZ    RX    RY    RZ   SCL  RMS  WRMS|    TOFT   TDRFT   SDEV    RMS
+        |  [mm]  [mm]  [mm] [uas] [uas] [uas] [ppb] [mm] [mm]|    [ps]  [ps/d]   [ps]   [ps]
+--------+----------------------------------------------------+------------------------------
+brd  n/a|   -4   -61   -37   162   317  -995 -2.06  700  700 |       6      25   1186   2087
+cod  122|    0     0     2    35   -31     5  -.06    9    9 |    -713      37     10    111
+emr  127|    0     0     0    28     6    28  -.08   15   15 |   -1564     -49     17    120
+esa  110|    0     0     0    25    15   -16  -.04    8    8 |    -667      23     10     84
+gfz  115|    2     0    -2   -28    -8    14   .12   15   12 |     -89     150     12    123
+iga  n/a|    0     0     0     4    -4    12  -.03    7    6 |      20     -35     37     82
+igc  n/a|    1     0     0    32  -186   -84  -.14   19   19 |     380    -503     91    418
+igu  n/a|    0     0     0    32  -446  -342   .00   42   40 |      20     -37   1084   1984
+jpl   80|   -1    -1     0   -55    -3   -28   .10    8    8 |     646       3     12     80
+ngs  176|    0     0     0    -8    22     7  -.10   10   10 |      33      52    870   1843
+sio   97|    0     0    -2   127  -427    10  -.15   21   21 |       0       0      0      0
+usn   69|    1     0    -6    86     0   553  -.11   30   28 |   -1086     -66    107    180
+whu   81|    0     2    -6   106     7   104  -.07  239   45 |  -15388    6797      0      0
+
+
+
+Table 2: Daily fit for each satellite and each centre resulting from weighted
+         average combination. 
+
+         The last column gives the IGR resulting satellite accuracy measures 
+         found in the IGS SP3 header. Eclipsing satellites are flagged with
+         "E" (or "M" for moon) beside the PRN number. "X" stands for excluded
+         from RMS, WRMS and MEDI-combination statistics but included in IGU
+
+         Units: mm
+
+Table 2.2233.0   GPS week: 2233   Day: 0   MJD: 59875.000                            
+
+        Weighted Average                                                      
+ PRN  |  brd  cod  emr  esa  gfz  iga  igc  igu  jpl  ngs  sio  usn  whu  IGR |
+------+-----------------------------------------------------------------------+
+   1E |  369   10   10   13   52    9   12   32   10   11   23   21   51    9 |
+   2E |  575   12   15    6   12    8   26   50    6    9   25  ---   47    4 |
+   3  |  867    7   11    8    9    4   12   41    7    6   17   23   38    3 |
+   4  |  755    8   12    8    8    6   17   26   10    8   17   20   43    4 |
+   5  |  405    9   22    8    8    6   12   23    7    9   26   35   37    4 |
+   6E |  828    8   11    8   20    8   18   22    8   12   21   35  473    5 |
+   7E |  777   10   15    9   15   11   31   55    8   12   19   35   53    5 |
+   8  |  711    7    8    7    9    3    9   34    8    7   17   28   49    4 |
+   9  |  773    8   10    9    7    5   21   58    7    7   16   27   48    4 |
+  10  |  636    9    9    7   15    3    9   15    7    9   17   27   54    4 |
+  11E |  648   11   26   10   26   13   30   26   11   20   27   44  149    7 |
+  12  | 1231   12   14    8    7    4   16   46    7    8   16   41  399    4 |
+  13  |  830   12   20    8    7    5   15   27   10    9   19   37   36    5 |
+  14  |  588   12   23    9   15   10   17   58    7   12   28   28  121    5 |
+  15  |  158    9   18    7    8    5   13   34    6    6   23   31   30    4 |
+  16  |  797   10   14    4   12    6   20   78    9   11   15   23   26    4 |
+  17  | 1025    8   14    8   11    5   12   29    8   10   22   30  188    4 |
+  18E |  946   10   25    8   20   12   34   37    9   19   24  ---   31    6 |
+  19  |  431    8   14    6    9    5   12   30   10    6   22   30 1103    4 |
+  20  |  694   11   19   11    8    6   15   32    8   13   19   32   54    5 |
+  21E |  526    7   11    9   11    5   20   45    8   10   20   19  108    4 |
+  22  |  547    6   14    7   15    4   13   43    6   11   16   34   35    4 |
+  23  |  742    6   12    6   12    6   19   45    7    8   21   26   43    4 |
+  24  |  962   14    9    7   11    7   21   62   11    8   23   25  197    4 |
+  25  |  284    9   11    7   10    4   15   26    7    7   25   23   63    5 |
+  26  |  608    8    9    8   14    4   16   50    7   11   15   18   29    4 |
+  27  |  449    8    6    7   10    3   11   39    9    8   19   25   27    3 |
+ X28  |  666    8   12   10   15    4  ---   41  ---    7   32   45 5852    5 |
+  29  |  656    7   16    5    9    6   20   28    8    8   24   42   46    4 |
+  30E |  883   11   12   10   18    6   16   37   10   13   27   27   58    6 |
+  31E |  222   11   11    8   12   10   28   64    8   12   19   30   42    4 |
+  32  |  491    8   10    7    8    5   10   30    7    9   16   21   55    4 |
+------+-----------------------------------------------------------------------+
+ RMS  |  700    9   15    8   15    7   19   42    8   10   21   30  239      |
+ WRMS |  700    9   15    8   12    6   19   40    8   10   21   28   45      |
+ MEDI |  656    9   12    8   11    5   16   37    8    9   20   28   49      |
+
+
+
+Table 3: Daily Precise Navigation Summary using the corresponding Centre orbit 
+         positions and satellite clock corrections at 15 min intervals.
+
+         Each line gives the daily station RMS w.r.t. the estimated coordinates 
+         for the Latitude, Longitude and Height components.
+        
+         CLK  - Satellite clocks used.
+         EPO  - Number of satellite clock epochs available for that day.
+         Units: mm
+
+Table 3.2233.0   GPS week: 2233   Day: 0   MJD: 59875.0
+
+CENT| CLK EPO  |        BRUX       |        TOW2       |        YELL       |
+----+----------+-------------------+-------------------+-------------------+
+cod | cod 3072 |   129   185   399 |   211   217   531 |   250   285   467 |
+emr | emr 3072 |    74   112   178 |    76   110   237 |   105   155   255 |
+esa | esa 3072 |    68   108   174 |    79   113   228 |   111   164   267 |
+gfz | gfz 3066 |    72   118   166 |    74   106   230 |   107   165   242 |
+igr | igr 3060 |    68   109   176 |    84   113   190 |   111   152   225 |
+jpl | jpl 2976 |    68   116   178 |    81   111   225 |   131   168   266 |
+whu | whu 2858 |  ----  ----  ---- |    98   138   263 |  ----  ----  ---- |
+
+
+Table 4: Earth Orientation Parameters daily summary.                           
+                                                                              
+         Daily Centre ERP, ERP Rates and LOD differences with respect to       
+         IGR combined values.                                                  
+                                                                              
+         Xpole,Xrt: x pole and x pole rate                           
+         Ypole,Yrt: y pole and y pole rate                       
+         LOD      : Length Of Day                                               
+                                                                              
+         AC LOD BIAS    : 10-day mean LOD bias with respect to Bulletin A     
+         AC LOD BIAS RMS: RMS of AC LOD BIAS                               
+                                                                              
+         FLAG: "u" (used), "x" (excluded), "-" (no submission)                 
+               for Xpole, Ypole, Xrt, Yrt and LOD                              
+                                                                              
+         A star ("*") beside the AC name indicates that AC LOD values were     
+         derived from AC UT1-UTC values.                                       
+
+Table 4.2233.0   GPS week: 2233   Day: 0   MJD: 59875.500
+                                                         AC LOD  AC LOD
+CENT  FLAG  |   Xpole   Ypole     Xrt     Yrt    LOD |    BIAS  BIAS RMS
+            |   [uas]   [uas]   [uas/d] [uas/d]  [us]|    [us]    [us]
+------------+----------------------------------------+------------------
+cod   uuuuu |      41     -17    -198      92     -3 |       7     17
+emr   uuuuu |      12     -25    -171       5      5 |       9     18
+esa   uuuuu |     -19      -8     -28     -23      2 |      22     28
+gfz   uuuuu |       5     -22     441      38     -1 |      25     30
+iga   xxxxx |      -5       8     -36      90     -5 |       3     16
+igu   xxxxx |     549       0     622      81    -28 |      38     76
+jpl   uuuuu |       0      53      29     -14    -18 |      55     58
+ngs   uuuuu |     -34      -2      14     -95      4 |      17     23
+sio   xxxxx |      18      31    -166    -106      0 |      25     29
+usn   xxxxx |      -6      16      85     191    -17 |      10     19
+whu   uuxxu |       9     -14   -1290    1277     -4 |      14     24
