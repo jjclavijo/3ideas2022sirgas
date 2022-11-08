@@ -2,9 +2,11 @@
 # Tres ideas en torno a la reproducibilidad de los procesamientos geodésicos.
 
 ### Javier José Clavijo
-\small jclavijo@fi.uba.ar
-\newline
-\small https://github.com/jjclavijo/3ideas2022sirgas
+
+
+| jclavijo@fi.uba.ar |
+
+<!-- https://github.com/jjclavijo/3ideas2022sirgas -->
 
 ### Universidad de Buenos Aires - Facultad de Ingeniería
 
