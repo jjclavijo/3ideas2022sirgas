@@ -252,6 +252,29 @@ explorable.
 
 ![Pagina 11](png/11.png)
 
+En general, decimos que la reproducibilidad es la capacidad de repetir,
+en experimentos independientes, los resultados de una investigación.
+
+Por debajo de la reproducibilidad está la replicabilidad, que es la posibilidad
+de repetir el mismo exacto experimento (en geodesia sería aplicar el mismo
+exacto procesamiento sobre los mismos datos y obtener el mismo resultado).
+
+Por otro lado la robustez es la capacidad de aplicar procesamientos distintos
+a distintos datos que observan un mismo fenómeno obteniendo resultados
+compatibles.
+
+Todos estos conceptos sólo son aplicables si se pueden describir los flujos
+de trabajo en forma funcional (es decir que cada paso es idependiente de los
+demás y solo puede depender de ellos a través de información que se pasa
+en forma explícita).
+
+Por otro lado, es necesario tener idea de alguna forma de construir cómputos
+independientes para obtener una verdadera validación de los resultados.
+
+Por todo esto traemos tres ideas orientadas a graficar qué herramientas
+es necesario aplicar para poder construir procesamientos con las características
+que buscamos.
+
 La primera idea es buscar la forma de estandarizar o inventariar (no seamos
 pretenciosos) el registro de "qué procesos se siguieron hasta llegar a este
 producto". De esta manera podríamos generar un "registro de flujo de datos". Es
