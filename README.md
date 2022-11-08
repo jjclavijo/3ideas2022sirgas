@@ -7,6 +7,8 @@ header-includes:
   - \setbeamercolor{frametitle}{fg=orange}
 ---
 
+
+
 # Tres ideas en torno a la reproducibilidad de los procesamientos geodésicos.
 
 ### Javier José Clavijo
@@ -16,36 +18,58 @@ header-includes:
 
 ### Universidad de Buenos Aires - Facultad de Ingeniería
 
----
 
-## Motivación (origen)
+La charla habla principalmente sobre ideas para mejorar los flujos de datos
+para que sean más reproducibles (y varios conceptos asociados que ya veremos).
 
-- Posiciones, en un MR,
-  $\longleftrightarrow$ $\underset{x}{\arg\max} P(X|\text{\footnotesize datos})$
-  \footnote{\tiny \textit{Marcos de referencia geodésicos: un enfoque Bayesiano; JJ Clavijo, JF Martínez}, \\ en \guillemotleft Seminario de vinculación y transferencia: año 3\guillemotright \textbf{ISBN 978-987-88-4967-6} \url{https://cms.fi.uba.ar/uploads/Libro_SE_Vy_T_2021_VERSION_FINAL_add8815fd9.pdf}}
+El hilo conductor es la situación que me motivó a generar este trabajo.
 
-- Si resuelvo X por Pedazos (ej: órbitas $\rightarrow$ $X_0$)
+Habiéndome propuesto aplicar métodos bayesianos al calculo del marco de
+referencia a partir de soluciones diarias o semanales caí en cuenta que lo
+primero que tenía que entender bien era cuales son los supuestos del modelo y
+que distribuciones a-priori implican, incluyendo las correlaciones entre todos
+los parámetros que entran en juego.
 
-- $P(X_1|\text{\footnotesize datos}) = P(X_1|\text{\footnotesize datos},X_0)$
-  - $\mapsto$ condicionar a los parámetros fijos es igual a la marginalizar.
-  - $\mapsto$ $X_1$ y $X_0$ son condicionalmente independientes a los datos.
-  - No pasa si hay datos compartidos.
+Aquí topamos con algunas dificultades a la hora de analizar y comparar los
+procesamientos publicados. Se hace dificil decidir si determinado conjunto de
+datos publicado es apto para un objetivo concreto, porque no podemos saber si
+hay correlaciones no declaradas que nos puedan afectar el resultado si no
+sabemos cómo se relacionan con sus datos de entrada. (o no sabemos qué
+datos de entrada tiene)
 
-- $\mapsto$ Necesito saber si $P(X_0,\text{datos}) = P(X_0)P(\text{datos}) \forall  \text{modelos}$
-
-- Y necesito sistematizarlo.
 
 <!---
 
-La principal motivación es que, dado a proponer aplicar métodos bayesianos a la materialización de los marcos de referencia es importante entender cuales son los priors, las correlaciones, etc.
-
-Aquí topamos con algunas dificultades a la hora de analizar y comparar los procesamientos publicados.
-
-Incluso se hace dificil decidir si determinado conjunto de datos publicado es apto para un objetivo concreto, porque no podemos saber si hay correlaciones no declaradas que nos puedan afectar el resultado si no sabemos cómo se relacionan con sus datos de entrada.
-
-Es importante remarcar que se CONDICIONA cuando se eliminan columnas de ATPA y se MARGINALIZA cuando se eliminan columnas de SIGMA.
+> ## Motivación (origen)
+>
+> - Posiciones, en un MR,
+>   $\longleftrightarrow$ $\underset{x}{\arg\max} P(X|\text{\footnotesize datos})$
+>   [Marcos de referencia geodésicos: un enfoque Bayesiano; JJ Clavijo, JF Martínez](https://cms.fi.uba.ar/uploads/Libro_SE_Vy_T_2021_VERSION_FINAL_add8815fd9.pdf)
+>
+> - Si resuelvo X por Pedazos (ej: órbitas $\rightarrow$ $X_0$)
+>
+> - $P(X_1|\text{\footnotesize datos}) = P(X_1|\text{\footnotesize datos},X_0)$
+>   - $\mapsto$ condicionar a los parámetros fijos es igual a la marginalizar.
+>   - $\mapsto$ $X_1$ y $X_0$ son condicionalmente independientes a los datos.
+>   - No pasa si hay datos compartidos.
+>
+> - $\mapsto$ Necesito saber si $P(X_0,\text{datos}) = P(X_0)P(\text{datos}) \forall  \text{modelos}$
+>
+> - Y necesito sistematizarlo.
 
 --->
+
+!(Pg1)[png/02.png]
+
+Puesto más formal, necesitamos saber si las distibuciones de los parámetros
+provienen de condicionar unos a otros, marginalizar o si en algun caso
+ambas cosas son equivalentes (es decir que los parámetros son independientes).
+
+Ya vamos a ver por que importa marginalizar o condicionar.
+
+Es importante remarcar que se CONDICIONA cuando se eliminan columnas de ATPA y
+se MARGINALIZA cuando se eliminan columnas de SIGMA.
+
 
 ---
 
